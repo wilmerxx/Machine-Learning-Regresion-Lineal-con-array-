@@ -1,4 +1,4 @@
-# Regresion Lineal con la materia de inteligencia artifical
+# Regresión Lineal con la materia de inteligencia artifical
 ## Machine Learning
 ###### Utilización con base de datos relacionada
 >Resultados del algoritmo :+1: 
