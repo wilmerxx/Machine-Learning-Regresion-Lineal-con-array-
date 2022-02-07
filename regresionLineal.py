@@ -8,6 +8,8 @@ import numpy as np
 import matplotlib.pyplot as plt
 from matplotlib import style
 import seaborn as sns
+
+# Conexión a la base de datos
 import sqlalchemy
 
 # Preprocesado y modelado
@@ -53,7 +55,6 @@ datos.columns = result.keys()
 print(datos);
 
 
-
 # Gráfico
 # ==============================================================================
 fig, ax = plt.subplots(figsize=(6, 3.84))
@@ -66,7 +67,6 @@ ax = ax
 )
 ax.set_title('Distribución de bateos y runs');
 plt.show()
-
 
 
 # Correlación lineal entre las dos variables
@@ -109,4 +109,5 @@ squared = False
 )
 print("")
 print(f"El error (rmse) de test es: {rmse}")
+
 
