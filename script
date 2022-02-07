@@ -1,0 +1,79 @@
+PRAGMA foreign_keys = 0;
+
+CREATE TABLE sqlitestudio_temp_table AS SELECT *
+                                          FROM equipos;
+
+DROP TABLE equipos;
+
+CREATE TABLE equipos (
+    id_equipos INTEGER      PRIMARY KEY AUTOINCREMENT,
+    nombres    VARCHAR (50),
+    id_bat     INT          REFERENCES bateos (id_bateos),
+    id_run     INT          REFERENCES runs (id_runs) 
+);
+
+INSERT INTO equipos (
+                        id_equipos,
+                        nombres
+                    )
+                    SELECT id_equipos,
+                           nombres
+                      FROM sqlitestudio_temp_table;
+
+DROP TABLE sqlitestudio_temp_table;
+
+PRAGMA foreign_keys = 1;
+------------------------------------------------------------------------------
+
+PRAGMA foreign_keys = 0;
+
+CREATE TABLE sqlitestudio_temp_table AS SELECT *
+                                          FROM bateos;
+
+DROP TABLE bateos;
+
+CREATE TABLE bateos (
+    id_bateos INTEGER PRIMARY KEY AUTOINCREMENT,
+    tiros     NUMERIC,
+    id_equi   INT     REFERENCES equipos (id_equipos) 
+);
+
+INSERT INTO bateos (
+                       id_bateos,
+                       tiros
+                   )
+                   SELECT id_bateos,
+                          tiros
+                     FROM sqlitestudio_temp_table;
+
+DROP TABLE sqlitestudio_temp_table;
+
+PRAGMA foreign_keys = 1;
+
+
+----------------------------------------------------------------------------
+PRAGMA foreign_keys = 0;
+
+CREATE TABLE sqlitestudio_temp_table AS SELECT *
+                                          FROM runs;
+
+DROP TABLE runs;
+
+CREATE TABLE runs (
+    id_runs   INTEGER PRIMARY KEY AUTOINCREMENT,
+    tiros_run NUMERIC,
+    id_equi   INT     REFERENCES equipos (id_equipos) 
+);
+
+INSERT INTO runs (
+                     id_runs,
+                     tiros_run
+                 )
+                 SELECT id_runs,
+                        tiros_run
+                   FROM sqlitestudio_temp_table;
+
+DROP TABLE sqlitestudio_temp_table;
+
+PRAGMA foreign_keys = 1;
+
