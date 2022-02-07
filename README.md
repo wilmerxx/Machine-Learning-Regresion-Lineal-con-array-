@@ -2,4 +2,4 @@
 ## Machine Learning
 ###### Utilización de con base de datos
 Resultados del algoritmo
-![Alt text](/relative/path/to/Figure_1.png?raw=true "Optional Title")
+![Image text](https://github.com/wilmerxx/Machine-Learning-Regresion-Lineal-con-array-/blob/main/Figure_1.png)
